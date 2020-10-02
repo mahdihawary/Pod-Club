@@ -1,0 +1,38 @@
+
+
+<% if flash[:redirect] %>
+ <p style="color:red;" class ="text-center"> <%= flash[:redirect] %></p>
+    <% end %>
+  
+<div class="row ">
+    <div class="col-sm"></div>
+    <div class="col-sm text-center mt-3">
+    <%= form_for @user do |f| %>
+      
+    
+          <%= f.text_field :username, {class: "form-control text-center", placeholder: "Enter username" } %>
+      
+        <br>
+          
+          <%= f.password_field :password, {class: "form-control text-center", placeholder: "Enter password" } %>
+          <br>
+         
+          <%= f.password_field :password_confirmation, {class: "form-control text-center", placeholder: "Enter password confirmation" } %>
+          <br>
+         
+          <%= f.text_field :name, {class: "form-control text-center", placeholder: "Enter name" } %>
+          <br>
+       
+          <%= f.number_field :age, {class: "form-control text-center", placeholder: "Enter age"} %>
+          <br>
+         
+          <%= f.text_field :favorite_genre, {class: "form-control text-center", placeholder: "Enter favorite genre"} %>
+          <br>
+         
+          <%= f.text_field :profile_pic, {class: "form-control text-center", placeholder: "Enter Profile Picture"} %>
+          <br>
+          <%= f.submit "Submit",  :class => "btn btn-dark"%>
+    <% end %>
+    </div>
+    <div class="col-sm"></div>
+</div>

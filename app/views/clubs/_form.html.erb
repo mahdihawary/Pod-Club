@@ -1,0 +1,25 @@
+<% if flash[:message] %>
+  <% flash[:message].each do |error| %>
+    <p style="color:red;"><%= error %></p>
+  <% end %>
+<% end %>
+<div class="row ">
+<div class="col-sm"></div>
+<div class="col-sm text-center">
+  <%= form_for @club do |f| %>
+    <%= f.label :name  %>
+    <%= f.text_field :name  , {class: "form-control "}%>
+    <br>
+    <%= f.label :genre %>
+    <%= f.text_field :genre , {class: "form-control "}%>
+    <br>
+    <%= f.label "Club Profile Picture" %>
+    <%= f.text_field :club_image , {class: "form-control "}%>
+    <br>
+    <%= f.submit "Submit",  :class => "btn btn-dark"%>
+    </div>
+  <% end %>
+  <div class="col-sm"></div>
+  </div>
+</div>
+

@@ -1,0 +1,66 @@
+<% if flash[:message] %>
+  <h1 style="color:green;"><%= flash[:message] %></h1>
+<% end %>
+
+<h1 class = "text-center" ><%= @club.name %></h1>
+
+
+
+<h3 class = "text-center m-3">Genre: <%= @club.genre %></h3>
+<div class= "container"> 
+<img src="<%= @club.club_image %>" alt="<%= @club.name%>" class="rounded mx-auto d-block  w-50">
+</div>
+
+<div class="text-center">
+<h3 class = "text-center"> Members </h3>
+
+  
+
+
+
+
+<div class="row p-4">
+      <% @club.users.each do |user| %>
+        <section class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card mb-4" style="width: 15rem; height: 16rem">
+                <img src="<%= user.profile_pic %>" alt="<%user.name%>" class="img-fuid w-100 h-75 mx-auto index-img">
+                <div class="card-body">
+                    <h5 class="card-title"><%= link_to user.username, user_path(user) %></h5>
+                </div>
+            </div>
+        </section>
+    <% end %>
+</div>
+
+
+
+</div>
+<% flash[:club_num] = @club.id %>
+<% if !!UserClub.find_by(user_id: @current_user.id, club_id: @club.id)%>
+
+<h4 class = "text-center">Episodes</h4>
+<div class= "text-center m-5">
+<% @club.episodes.each do |episode| %>
+<%= link_to episode.full_name, episode_path(episode) %>
+<br>
+<% end %>
+</div>
+<!-- <%= button_to "Create Episode", new_episode_path, method: :get %> -->
+
+<div class = "text-center">
+
+<%= button_to "Add an Episode", new_club_episode_path, method: :get, class: "btn btn-dark"%>
+<br>
+<%= button_to "Edit Club", edit_club_path(@club), method: :get, class: "btn btn-dark" %>
+<br>
+
+<%= button_to "Leave Club",  user_club_path(UserClub.find_by(user_id: @current_user.id, club_id: @club.id)), method: :delete, data: {confirm: "Are you sure you want to leave this club?"}, class: "btn btn-dark" %>
+<% else %>
+<h3 class = "text-center">To view this club's episodes please join the club</h3>
+<%= form_tag user_clubs_path do %>
+  <%= hidden_field_tag 'user_club[user_id]', @current_user.id %>
+  <%= hidden_field_tag 'user_club[club_id]', @club.id  %>
+  <%= submit_tag "Join Club" , class: "btn btn-dark"%>
+  <% end %>
+<% end %>
+</div>

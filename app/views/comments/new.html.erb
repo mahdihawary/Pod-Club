@@ -1,0 +1,13 @@
+<% if flash[:message] %>
+  <% flash[:message].each do |error| %>
+    <p style="color:red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+
+<%= form_tag comments_path do %>
+  <%= hidden_field_tag 'comment[user_id]', @current_user.id %>
+  <%= hidden_field_tag 'comment[episode_id]',  flash[:ep_num]%>
+  <%= text_area_tag 'comment[text]'%>
+  <%= submit_tag "Comment" %>
+  <% end %>

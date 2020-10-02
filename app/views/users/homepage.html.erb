@@ -1,0 +1,63 @@
+
+
+
+
+
+<!— We should add in dynamic pictures for clubs - where people can click on them and go to their show pages and see the magic of our application —>
+
+        
+</div>
+
+<div class="container">
+  <div class="row">
+   <div class="col m-4">
+    <img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fhw-media.herworld.com%2Fpublic%2F2019%2F12%2Fimage%2Fpodcast.jpg" alt="" class= "rounded w-100 h-1000">
+    </div>
+    <div class="col-lg my-4">
+        <p class="text-lg-justify">Do you miss book clubs? A place to talk with your friends about your favorite books while being introduced to new binge worthy literature? </p>
+        <br>
+        <p class="text-lg-justify">Well you’re in luck! Consider Pod Club a revised book club for the modern world.</p>
+        <br>
+        <p class="text-lg-justify">With Pod Club, you can create or join listening clubs based upon your interests and associated podcast genres.</p>
+        <br>
+        <p class="text-lg-justify">Look at some of our clubs below! Have another idea for a club? Create a new one and invite your friends!</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col ">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner w-80 h-80 mb-5">
+  <% Club.all.sample(1).each do |club| %>
+    <div class="carousel-item active" data-interval= "100 ">
+      <img src=<%= club.club_image%> class="d-block w-100 h-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h1 class="display-4">If you like <%= club.genre %>, join <%= club.name %></h1>
+      </div>
+    </div>
+    <% end%>
+   
+  <% Club.all.sample(2).each do |club| %>
+    <div class="carousel-item " >
+      <img src=<%= club.club_image%> class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h1 class="display-4">If you like <%= club.genre %>, join <%= club.name %></h1>
+      </div>
+    </div>
+    <% end%>
+   </div>
+   <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+    
+  
+</div>
+

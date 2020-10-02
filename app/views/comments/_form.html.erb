@@ -1,0 +1,14 @@
+
+<div class = "text-center">
+
+<%= form_for([@episode,@comment]) do |f| %>
+    <p>
+    <%= f.label 'Add a comment:' , {class: "text-light"}%><br />
+    <%= f.text_area :text , {class: "w-50"}%>
+    </p>
+    <p>
+    <%= f.submit :class => "btn btn-dark"%>
+    </p>
+<% end %>
+
+</div>

@@ -1,0 +1,28 @@
+<% if flash[:message] %>
+  <% flash[:message].each do |error| %>
+    <p style="color:red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+<h1> Create a New Episode </h1>
+<%= form_for @episode do |f| %>
+  <%= f.label :name  %>
+  <%= f.text_field :name  %>
+  <br>
+  <%= f.label :episode_number %>
+  <%= f.number_field :episode_number %>
+  <br>
+  <%= f.label :episode_title %>
+  <%= f.text_field :episode_title %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.label :date %>
+  <%= f.date_select :date, {order:[:month, :year], start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>
+  <br>
+  <%= f.label :episode_url %>
+  <%= f.text_field :episode_url %>
+  <br>
+  <%= f.submit %>
+<% end %>

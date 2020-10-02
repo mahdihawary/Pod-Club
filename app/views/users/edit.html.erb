@@ -1,0 +1,21 @@
+<% if flash[:message] %>
+  <% flash[:message].each do |error| %>
+    <p style="color:red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label :age %>
+  <%= f.number_field :age %>
+  <br>
+  <%= f.label :favorite_genre %>
+  <%= f.text_field :favorite_genre %>
+  <br>
+  <%= f.label :profile_pic %>
+  <%= f.text_field :profile_pic %>
+  <br>
+  <%= f.submit %>
+<% end %>

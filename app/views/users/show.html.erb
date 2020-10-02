@@ -1,0 +1,42 @@
+<% if flash[:message] %>
+  <h1 style="color:green;"><%= flash[:message] %></h1>
+<% end %>
+<div class = "text-center">
+<h1 class = "display-4"><%= @user.name %></h1>
+<h3 >Username: <%= @user.username %></h1>
+<img src="<%= @user.profile_pic %>" alt="<%= @user.name%>",  class = "rounded w-50 h-50">
+
+
+<h3>Age: <%= @user.age %></h3>
+<h3>Favorite Genre: <%= @user.favorite_genre %></h3>
+</div>
+
+
+
+
+<h3>Your Clubs</h3>
+<div class="row">
+   <% @user.clubs.each do |club| %>
+        <section class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card mb-4" style="width: 16rem; height: 18rem">
+                <img src="<%= club.club_image %>" alt="<%club.name%>" class="img-fuid w-100 h-50 mx-auto index-img">
+                <div class="card-body">
+                    <h5 class="card-title"><%= link_to club.name, club_path(club) %></h5>
+                    <p class="card-subtitle sm"><em><%= club.genre %></em></p>
+                   
+                    
+                </div>
+            </div>
+        </section>
+    <% end %>
+</div>
+
+<% if @user.id == @current_user.id  %>
+
+<%= button_to "Add Club", clubs_path, method: :get, :class => " btn btn-dark"%>
+<br>
+<%= button_to "Edit Account", edit_user_path(@user), method: :get, :class => " btn btn-dark"%>
+<br>
+<%= button_to "Delete Account", user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete your account?"}, :class =>"btn btn-dark" %>
+
+<% end %>

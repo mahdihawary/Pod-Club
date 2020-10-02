@@ -1,0 +1,21 @@
+<% if flash[:message] %>
+  
+    <p style="color:red;"><%= flash[:message] %></p>
+  
+<% end %>
+
+
+
+<h1 class = "text-center"> Add an Episode to this Club </h1>
+<div class="form-group text-center w-90">
+<%= form_for @club_episode  do |f| %>
+  <%= f.hidden_field :club_id, :value => flash[:club_num] %>
+  <br>
+  <%= f.label :episode_id  %>
+  <%= f.collection_select :episode_id, Episode.all, :id, :full_name, {prompt: "Select an episode"}, {class: "form-control"}%>
+  <br>
+  <%= f.submit 'Add Episode',   :class => "btn btn-dark"%>
+  
+<% end %>
+
+</div>
