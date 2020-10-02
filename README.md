@@ -1,4 +1,4 @@
-### Flatiron School - Module 2 (Rails) Project
+### Flatiron School - Module 2 (Rails) Final Project
 ### Created by Madeline Stalter (Github: PandaBearCoding) & Mahdi Hawary (Github: MahdiHawary)
 
 ### Purpose
