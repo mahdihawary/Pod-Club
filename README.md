@@ -2,7 +2,7 @@
 ### Created by Madeline Stalter (Github: PandaBearCoding) & Mahdi Hawary (Github: MahdiHawary)
 
 ### Purpose
-Pod Club was created to function as platform that allows users to join or create podcast clubs. Similar to a book club, each podcast club will have episodes that spark reviews and discussion amongst members. 
+Pod Club was created to function as a platform that allows users to join or create podcast clubs. Similar to a book club, each podcast club will have episodes that spark reviews and discussion amongst members. 
 
 ### Installation Instructions 
 1. Run bundle install in terminal
